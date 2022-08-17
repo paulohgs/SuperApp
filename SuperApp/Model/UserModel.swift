@@ -7,13 +7,20 @@
 
 import Foundation
 
-public struct User {
+public struct User: Decodable {
     
     var id: String
     var name: String
     var email: String
-    var password: String
+    var password: String?
     var avatar: String?
     
 }
 
+public struct CreateUser: Codable {
+    
+    var name: String
+    var email: String
+    var password: String
+    
+}
