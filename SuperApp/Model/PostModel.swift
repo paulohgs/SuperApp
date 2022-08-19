@@ -13,8 +13,8 @@ struct Post: Decodable {
     var media: String?
     var likeCount: Int?
     var userID: String
-    var createdAt: Date
-    var updatedAt: Date?
+    var createdAt: String
+    var updatedAt: String
     
     enum CodingKeys: String, CodingKey {
         case id

@@ -23,12 +23,11 @@ class API {
         ]
         
         do {
-            let (data, response) = try await URLSession.shared.data (for: urlRequest) // Cria a sessao e faz a requisicao
+            let (data, response) = try await URLSession.shared.data(for: urlRequest) // Cria a sessao e faz a requisicao
             let usuarios: [User] = try JSONDecoder().decode([User].self, from: data) // descodifica os dados da requisicao
             print(data)
             print(usuarios)
             print(response)
-            
             
             for usuario in usuarios {
                 print(usuario.name)
@@ -80,16 +79,14 @@ class API {
         return nil
     }
     
-    public static func createUser(name: String, email: String, password: String) async -> [String : User]? {
+    public static func createUser(name: String, email: String, password: String) async -> Session? {
         
         let usuario: CreateUser = CreateUser(name: name, email: email, password: password)
         
         // Configuracao da URL
         var urlComponent = URLComponents()
         urlComponent.scheme = "http"
-        //        urlComponent.host = "adaspace.local"
-        urlComponent.host = "localhost"
-        urlComponent.port = 8080
+        urlComponent.host = "adaspace.local"
         urlComponent.path = "/users"
         let url: URL = urlComponent.url!
         
@@ -104,7 +101,8 @@ class API {
         
         // fazendo requisicao
         do {
-            let (data, response) = try await URLSession.shared.data(for: urlRequest)
+            
+            let (data, response) = try await URLSession.shared.data(for: urlRequest) //Criacao da sessao de requisicao
             print(data)
             print(response)
             
@@ -112,8 +110,10 @@ class API {
                 switch httpResponse.statusCode {
                 case 200...300:
                     print("success")
-                    let dataDecoded: [String : String] = try JSONDecoder().decode([String : String].self, from: data) // duvida nessa operaçao
+                    let dataDecoded: Session = try JSONDecoder().decode(Session.self, from: data) // duvida nessa operaçao
                     print(dataDecoded)
+                case 500...600:
+                    print("Erro interno ao processar os dados. Por favor, tente novamente mais tarde.")
                 default:
                     print("error")
                     return nil
@@ -138,17 +138,18 @@ class API {
         let url: URL = urlComponent.url!
         var urlRequest = URLRequest(url: url)
         
+        // configuracao de requisicao
         urlRequest.httpMethod = "GET"
         urlRequest.allHTTPHeaderFields = [   //Consiguracao do Header e o tipo do conteudo
             "Content-Type" : "application/json"
         ]
-        
         
         do {
             
             let (data, response) = try await URLSession.shared.data(for: urlRequest)
             
             if let httpRes = response as? HTTPURLResponse {
+                
                 switch httpRes.statusCode {
                 case 200...300:
                     print("success")
@@ -159,33 +160,18 @@ class API {
                 default:
                     print("deu erro em bixao!")
                 }
+                
             }
+            
         } catch {
             print(String(describing: error))
         }
         
-//        let task = URLSession.shared.dataTask(with: urlRequest, completionHandler: {(data, response, error) in
-//            if let httpRes = response as? HTTPURLResponse {
-//                switch httpRes.statusCode {
-//                case 200...300:
-//                    print("success")
-//                default:
-//                    print("error")
-//                }
-//            }
-//            guard let data = data else { return }
-//            do {
-//                let allPosts: [Post] = try JSONDecoder().decode([Post].self, from: data)
-//                print(allPosts)
-//            } catch {
-//                print(error.localizedDescription)
-//            }
-//            //                print(allPosts)
-//            //                return allPosts
-//
-//        })
         return []
+        
     }
+    
+    public static func helloWorld(){print("HelloWorld");print("olhaissodaqui")}
     
 }
 

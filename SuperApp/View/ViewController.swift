@@ -28,12 +28,12 @@ class ViewController: UIViewController {
     
     func TesteRapido() {
         Task {
-            
+            await API.PegaTodosUsuarios()
 //            await API.getUserByID(id:"055D73CE-A402-4495-81EF-57BA2F3A6F73")
-//            await API.PegaTodosUsuarios()
+
         
 //            await API.createUser(name: "pieight5", email: "pieight@teste6.com", password: "1234")
-            await API.getAllPosts()
+//            await API.getAllPosts()
         }
     }
 

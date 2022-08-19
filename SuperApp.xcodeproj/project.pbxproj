@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B92D391828AD147B00DE21F4 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92D391728AD147B00DE21F4 /* LoginView.swift */; };
 		B92D391A28AD222C00DE21F4 /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92D391928AD222C00DE21F4 /* PostModel.swift */; };
+		B9318A4B28AE60F300463E5D /* SessionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9318A4A28AE60F300463E5D /* SessionModel.swift */; };
 		B9D52FB128A522F100523833 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D52FB028A522F100523833 /* AppDelegate.swift */; };
 		B9D52FB328A522F100523833 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D52FB228A522F100523833 /* SceneDelegate.swift */; };
 		B9D52FB528A522F100523833 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D52FB428A522F100523833 /* ViewController.swift */; };
@@ -43,6 +44,7 @@
 /* Begin PBXFileReference section */
 		B92D391728AD147B00DE21F4 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		B92D391928AD222C00DE21F4 /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
+		B9318A4A28AE60F300463E5D /* SessionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionModel.swift; sourceTree = "<group>"; };
 		B9D52FAD28A522F100523833 /* SuperApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuperApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9D52FB028A522F100523833 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B9D52FB228A522F100523833 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -109,7 +111,7 @@
 		B9D52FAF28A522F100523833 /* SuperApp */ = {
 			isa = PBXGroup;
 			children = (
-				B9D52FE728A5274700523833 /* API */,
+				B9D52FE728A5274700523833 /* Services */,
 				B9D52FE028A5230F00523833 /* Model */,
 				B9D52FE128A5231400523833 /* View */,
 				B9D52FE228A5231900523833 /* Controller */,
@@ -144,6 +146,7 @@
 			children = (
 				B9D52FE328A524CE00523833 /* UserModel.swift */,
 				B92D391928AD222C00DE21F4 /* PostModel.swift */,
+				B9318A4A28AE60F300463E5D /* SessionModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -166,12 +169,12 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		B9D52FE728A5274700523833 /* API */ = {
+		B9D52FE728A5274700523833 /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				B9D52FE528A5273100523833 /* API.swift */,
 			);
-			path = API;
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -307,6 +310,7 @@
 			files = (
 				B9D52FB528A522F100523833 /* ViewController.swift in Sources */,
 				B92D391828AD147B00DE21F4 /* LoginView.swift in Sources */,
+				B9318A4B28AE60F300463E5D /* SessionModel.swift in Sources */,
 				B9D52FB128A522F100523833 /* AppDelegate.swift in Sources */,
 				B92D391A28AD222C00DE21F4 /* PostModel.swift in Sources */,
 				B9D52FE428A524CE00523833 /* UserModel.swift in Sources */,
